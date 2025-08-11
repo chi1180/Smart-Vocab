@@ -1,5 +1,6 @@
 import { app, BrowserWindow, screen } from "electron";
 import path from "node:path";
+import { applyHandlers } from "./ipc_handler";
 
 const isDev = process.env.NODE_ENV === "development";
 
@@ -36,3 +37,5 @@ app.on("activate", () => {
     createWindow();
   }
 });
+
+applyHandlers();

@@ -1,5 +1,6 @@
-import { contextBridge, ipcRenderer } from 'electron';
+import { contextBridge, ipcRenderer } from "electron";
 
-contextBridge.exposeInMainWorld('electronAPI', {
-  // 必要に応じてAPIを追加
+contextBridge.exposeInMainWorld("electronAPI", {
+  call: (channel: string, ...args: any[]) =>
+    ipcRenderer.invoke(channel, ...args),
 });

@@ -7,7 +7,9 @@ import { Setting } from "./pages/Setting";
 import { Vocab } from "./pages/Vocab";
 import type { TabbarProps } from "./props";
 import { _LastTimeData } from "./utilities/localStorage";
+import { Toaster } from "react-hot-toast";
 
+/* App rendered function */
 const App: React.FC = () => {
   const last_time_data_key = "tab";
   const last_selected_tab = _LastTimeData.get(last_time_data_key);
@@ -49,6 +51,7 @@ const App: React.FC = () => {
       <div className="h-[calc(100vh-3.5rem)] bg-primary">
         {pages[selectedTab]}
       </div>
+      <Toaster />
     </div>
   );
 };
